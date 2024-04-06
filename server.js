@@ -5,6 +5,7 @@ const cors = require('cors');
 const crearUsuario = require('./Controller/Cygnus/userController');
 const eliminar_usuario = require('./Controller/Cygnus/eliminar_usuario');
 const listarImagenesDocker = require('./Controller/Cygnus/imagenes');
+const enviarComando = require ('./Controller/Cygnus/Comando');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +21,9 @@ app.post('/eliminar-usuario', eliminar_usuario.eliminar_usuario);
 
 
 app.get('/listar-imagenes-docker', listarImagenesDocker.listarImagenesDocker);
+
+
+app.post('/comando',enviarComando.comando);
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
